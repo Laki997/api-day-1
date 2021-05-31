@@ -9,7 +9,9 @@ class Contact extends Model
 {
     use HasFactory;
 
-    public function index(){
-        dd('caooo');
-    }
+    protected $fillable=[
+        'firstName','lastName','email'
+    ];
+
+  
 }

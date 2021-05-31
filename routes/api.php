@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::middleware('api')->get('/contacts',[ContactController::class,'index']);
+Route::middleware('api')->post('/contacts',[ContactController::class,'store']);
+Route::middleware('api')->get('/contacts/{id}',[ContactController::class,'show']);
+Route::middleware('api')->put('/contacts/{id}',[ContactController::class,'update']);
+Route::middleware('api')->delete('/contacts/{id}',[ContactController::class,'destroy']);
