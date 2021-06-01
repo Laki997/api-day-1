@@ -29,23 +29,23 @@ class ContactController extends Controller
 
     public function update(Request $request, $id){
       
-      $contact = Contact::find($id);
+      // $contact = Contact::find($id);
 
-      $contact->firstName = $request->input('firstName');
-      $contact->lastName = $request->input('lastName');
-      $contact->email = $request->input('email');
+      // $contact->firstName = $request->input('firstName');
+      // $contact->lastName = $request->input('lastName');
+      // $contact->email = $request->input('email');
 
-      $contact->save();
+      // $contact->save();
 
-      return $contact;
+      // return $contact;
+
+      Contact::where('id',$id)->update($request->all());
       
     }
 
     public function destroy($id){
-      $contact = Contact::find($id);
-      $contact->delete();
-
-      return $contact;
+      
+      Contact::where('id',$id)->delete();
 
       
     }
